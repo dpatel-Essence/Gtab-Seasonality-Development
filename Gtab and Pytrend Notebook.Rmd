@@ -1,0 +1,200 @@
+---
+title: "Gtab and Pytrend Notebook"
+author: "Darshan Patel"
+date: "`r Sys.Date()`"
+output: 
+  html_notebook:
+    toc: true
+    toc_float: true
+    number_sections: false
+    theme: cerulean
+    highlight: tango
+    fig_caption: true
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = 'C:\\Users\\Admin\\Documents\\GitHub\\GtabRNotebook')
+options(knitr.table.format = "html") 
+options(digits=2)
+options(scipen = 100)
+```
+
+The Goal of this document is to investigate the Gtab Python package as well as additional supplemental packages for maintaining a search interest database.\
+*Note: All code is Python unless specified*
+
+# Suggestions Generation {.tabset .tabset-pills}
+
+## Getting Potential Google Suggestions
+
+```{python}
+import requests
+import json
+from fake_useragent import UserAgent
+import pandas as pd
+import numpy as np
+import requests
+import json
+import time
+import string
+import nltk
+nltk.download('punkt')
+from stop_words import get_stop_words
+from collections import Counter
+from json import loads
+```
+
+### Testing with one Keyword
+
+```{python}
+keyword = "Google Pixel"
+keyword.replace(" ", "+")
+```
+
+```{python}
+lang_code = 'en'
+url = "http://suggestqueries.google.com/complete/search?output=chrome&q="+str(lang_code) + keyword
+#&hl=us&gl=en
+```
+
+
+```{python}
+ua = UserAgent()
+headers = {"user-agent": ua.chrome}
+response = requests.get(url, headers=headers, verify=False)
+```
+
+```{python}
+suggestions = json.loads(response.text)
+for word in suggestions[1]:
+  print(word)
+```
+
+```{python}
+#language code and keywords
+# "" can be replaced with additional keywords
+lang_code="en"#@param {type:"string"}
+keyword1="google home" #@param {type:"string"}
+keyword2="google pixel" #@param {type:"string"}
+keyword3="" #@param {type:"string"}
+keyword4="" #@param {type:"string"}
+keyword5="" #@param {type:"string"}
+keyword6="" #@param {type:"string"}
+keyword7="" #@param {type:"string"}
+keyword8="" #@param {type:"string"}
+```
+
+
+```{python}
+#generate keyword list
+keywords=[keyword1,keyword2,keyword3,keyword4,keyword5,keyword6,keyword7,keyword8]
+keywordlist = list(filter(None, keywords))
+keywordlist
+```
+
+
+
+```{python}
+letterlist=[""]
+numberlist = [""]
+letterlist=letterlist+list(string.ascii_lowercase)
+numberlist = numberlist + [i for i in range(10)]
+
+letterlist
+numberlist
+```
+
+
+```{python}
+#Google Suggest for each combination of keyword and letter
+keywordsuggestions=[]
+for keyword in keywordlist: 
+  for letter in letterlist :
+    URL="http://suggestqueries.google.com/complete/search?client=firefox&hl="+str(lang_code)+"&q="+keyword+" "+letter
+    headers = {'User-agent':'Mozilla/5.0'} 
+    response = requests.get(URL, headers=headers) 
+    result = json.loads(response.content.decode('utf-8'))
+    keywordsuggest=[keyword,letter] 
+    for word in result[1]:
+      if(word!=keyword):
+        keywordsuggest.append(word)
+    time.sleep(1)
+    keywordsuggestions.append(keywordsuggest)
+#crearte a dataframe from this list
+keywordsuggestions_df = pd.DataFrame(keywordsuggestions)
+#Rename columns of dataframe
+columnnames=["Keyword","Letter"]
+for i in range(1,len(keywordsuggestions_df.columns)-1):
+  columnnames.append("Suggestion"+str(i))
+keywordsuggestions_df.columns=columnnames
+#Make a list of all suggestions
+allkeywords = keywordlist
+for i in range(1,len(keywordsuggestions_df.columns)-1):
+  suggestlist = keywordsuggestions_df["Suggestion"+str(i)].values.tolist()
+  for suggestion in suggestlist:
+    allkeywords.append(suggestion)
+#exclude stopwords and seed keywords from this list
+stop_words=get_stop_words(lang_code)
+wordlist=[]
+seed_words=[]
+for keyword in keywords:
+   for seed_word in nltk.word_tokenize(str(keyword).lower()):
+     if(len(seed_word)>0):
+       seed_words.append(seed_word)
+for keyword in allkeywords:
+   words = nltk.word_tokenize(str(keyword).lower()) 
+#word tokenizer
+   for word in words:
+     if(word not in stop_words and word not in seed_words and len(word)>1):
+      wordlist.append(word)
+#find the most common words in the suggestions
+most_common_words= [word for word, word_count in Counter(wordlist).most_common(100)]      
+#assign each suggestion to a common keyword
+clusters=[]
+for common_word in most_common_words:
+    for keyword in allkeywords:
+      if(common_word in str(keyword)):
+         clusters.append([keyword,common_word])
+clusterdf = pd.DataFrame(clusters,columns=['Keyword', 'Cluster'])
+```
+
+```{python}
+#create dataframe wiht clusters en suggestions
+clusterdf.to_csv("keywords_clustered.csv")
+#files.download("keywords_clustered.csv")
+clusterdf
+```
+
+```{r}
+library(reticulate)
+clusterdf2 = py$clusterdf 
+```
+
+
+```{python}
+#import package and latest anchor bank
+import gtab
+t = gtab.GTAB()
+t.set_active_gtab("google_anchorbank_geo=US_timeframe=2020-05-12 2022-05-11.tsv") #check out Gtrends_Anchor_Bank notebook for additional documentation on this
+mid = "/m/0jg7r" # freebase code for EPFL
+nq_res = t.new_query(mid) 
+nq_res
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
