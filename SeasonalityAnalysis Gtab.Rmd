@@ -1,13 +1,13 @@
 ---
-title: "Gtab and Pytrend Notebook"
+title: "Gtab Seasonality Notebook"
 author: "Darshan Patel"
 date: "`r Sys.Date()`"
 output: 
   html_notebook:
     toc: true
     toc_float: true
-    number_sections: false
-    theme: cerulean
+    number_sections: true
+    theme: sandstone
     highlight: tango
     fig_caption: true
     df_print: paged
@@ -15,24 +15,84 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = 'C:\\Users\\Admin\\Documents\\GitHub\\Gtab-Seasonality-Development')
+options(knitr.table.format = "html") 
+options(digits=2)
+options(scipen = 100)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(pacman,reticulate)
+py_install("gtab")
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+### Update Anchor Bank to Include all years
+
+
+```{python}
+#pip install gtab
+#pip install datetime
+#pip install dateutil
+#pip install --target=/home/ubuntu/.local/share/r-miniconda gtab
+
+import gtab
+import datetime
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
+t = gtab.GTAB()
+mintime =  date.today() - relativedelta(years=6)
+maxtime =  date.today()
+country = 'US'
+
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{python}
+import pytrends
+from pytrends.request import TrendReq
+pytrend = TrendReq()
+#urllib3 will sleep for: {backoff factor} * (2 ^ ({number of total retries} - 1))
+#tz = minutes behind UTC
+pytrends = TrendReq(hl="en-US"
+, timeout=(5,25),tz = 300, retries = 2
+#proxies=['https://34.141.231.120:80'], 
+,backoff_factor=5
+#, requests_args={'verify':True}
+) 
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{python}
+
+t.set_options(pytrends_config={"geo": f"{country}", "timeframe": f"{mintime} {maxtime}"})
+t.create_anchorbank() # takes a while to run since it queries Google Trends.
+
+```
+#Load Anchorbank
+
+```{python}
+#Make this the active Anchorbank
+t.set_active_gtab(f"google_anchorbank_geo={country}_timeframe={mintime} {maxtime}.tsv")
+mid = "/m/0jg7r" # freebase code for EPFL
+nq_res = t.new_query(mid) 
+nq_res
+
+```
+
+```{python}
+
+
+t.set_options(pytrends_config={"geo": "US", "timeframe": f"{mintime} {maxtime}"})
+
+#Make this the active Anchorbank
+t.set_active_gtab("google_anchorbank_geo=US_timeframe=2020-05-12 2022-05-11.tsv")
+mid = "/m/0jg7r" # freebase code for EPFL
+nq_res = t.new_query(mid) 
+nq_res
+
+```
+
+
+
