@@ -3070,51 +3070,108 @@ RetryError: HTTPSConnectionPool(host=&#39;trends.google.com&#39;, port=443): Max
 <p>#Load Anchorbank</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG4jTWFrZSB0aGlzIHRoZSBhY3RpdmUgQW5jaG9yYmFua1xudC5zZXRfYWN0aXZlX2d0YWIoZlwiZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPXtjb3VudHJ5fV90aW1lZnJhbWU9e21pbnRpbWV9IHttYXh0aW1lfS50c3ZcIilcbmBgYCJ9 -->
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Make this the active Anchorbank</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>t.set_active_gtab(<span class="ss">f&quot;google_anchorbank_geo=</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">_timeframe=</span><span class="sc">{</span>mintime<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>maxtime<span class="sc">}</span><span class="ss">.tsv&quot;</span>)</span></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG50Lmxpc3RfZ3RhYnMoKVxuXG5gYGAifQ== -->
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>t.list_gtabs()</span></code></pre></div>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRmlsZU5vdEZvdW5kRXJyb3I6IEM6XFxVc2Vyc1xcQWRtaW5cXEFwcERhdGFcXExvY2FsXFxSLU1JTkl+MVxcZW52c1xcUi1SRVRJfjFcXGxpYlxcc2l0ZS1wYWNrYWdlc1xcZ3RhYlxcb3V0cHV0XFxnb29nbGVfYW5jaG9yYmFua3NcXGdvb2dsZV9hbmNob3JiYW5rX2dlbz1VUy1lbl90aW1lZnJhbWU9MjAwNy0wMS0wMSAyMDIyLTA2LTA4LnRzdlxuIn0= -->
-<pre><code>FileNotFoundError: C:\Users\Admin\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\gtab\output\google_anchorbanks\google_anchorbank_geo=US-en_timeframe=2007-01-01 2022-06-08.tsv</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5taWQgPSBcIi9tLzBqZzdyXCIgIyBmcmVlYmFzZSBjb2RlIGZvciBFUEZMXG5ucV9yZXMgPSB0Lm5ld19xdWVyeShtaWQpIFxuYGBgIn0= -->
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> <span class="st">&quot;/m/0jg7r&quot;</span> <span class="co"># freebase code for EPFL</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>nq_res <span class="op">=</span> t.new_query(mid) </span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiVXNpbmcgQzpcXFVzZXJzXFxBZG1pblxcQXBwRGF0YVxcTG9jYWxcXFItTUlOSX4xXFxlbnZzXFxSLVJFVEl+MVxcbGliXFxzaXRlLXBhY2thZ2VzXFxndGFiXFxvdXRwdXRcXGdvb2dsZV9hbmNob3JiYW5rc1xcZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTA4LTAxLnRzdlxuTmV3IHF1ZXJ5ICcvbS8wamc3cidcblxuQmFkIGtleXdvcmQgJy9tLzBqZzdyJywgYmVjYXVzZSBUaGUgcmVxdWVzdCBmYWlsZWQ6IEdvb2dsZSByZXR1cm5lZCBhIHJlc3BvbnNlIHdpdGggY29kZSA0MDAuXG5LZXl3b3JkIC9tLzBqZzdyIGlzIGJhZCFcbiJ9 -->
-<pre><code>Using C:\Users\Admin\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\gtab\output\google_anchorbanks\google_anchorbank_geo=_timeframe=2019-01-01 2020-08-01.tsv
-New query &#39;/m/0jg7r&#39;
-
-Bad keyword &#39;/m/0jg7r&#39;, because The request failed: Google returned a response with code 400.
-Keyword /m/0jg7r is bad!</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5ucV9yZXNcbmBgYCJ9 -->
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>nq_res</span></code></pre></div>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiLTFcbiJ9 -->
-<pre><code>-1</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiRXhpc3RpbmcgR1RBQnM6XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1BUl90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89QVVfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUJBX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1CT190aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89QlJfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUNBX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1DTl90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89Q09fdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPURFX3RpbWVmcmFtZT0yMDE3LTAzLTA1IDIwMjEtMDUtMDUudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1ERV90aW1lZnJhbWU9MjAxOC0wMy0wNSAyMDIxLTA1LTA1X2NhdD03MS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPURFX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1ERV90aW1lZnJhbWU9MjAyMC0wMy0wNSAyMDIxLTA1LTA1X2NhdD03MS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPURLX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1FQ190aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89RVNfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUZSX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1HQl90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89R0hfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUdSX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1IUl90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89SURfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUlFX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1JTl90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89SVRfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUpQX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1LRV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89S1pfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPUxLX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1MVF90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89TUtfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPU1NX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1NV190aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89TVhfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPU5HX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1QRV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89UEhfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVBUX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1SVV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89VFJfdGltZWZyYW1lPTIwMTktMDEtMDEgMjAyMC0xMi0zMS50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVRXX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1VQV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89VVNfdGltZWZyYW1lPTIwMDctMDEtMDEgMjAyMi0wNi0wOC50c3Zcblx0Z29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVVTX3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMTItMzEudHN2XG5cdGdvb2dsZV9hbmNob3JiYW5rX2dlbz1WRV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTEyLTMxLnRzdlxuXHRnb29nbGVfYW5jaG9yYmFua19nZW89X3RpbWVmcmFtZT0yMDE5LTAxLTAxIDIwMjAtMDgtMDEudHN2XG5BY3RpdmUgYW5jaG9yYmFuazogZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPV90aW1lZnJhbWU9MjAxOS0wMS0wMSAyMDIwLTA4LTAxLnRzdlxuIn0= -->
+<pre><code>Existing GTABs:
+    google_anchorbank_geo=AR_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=AU_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=BA_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=BO_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=BR_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=CA_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=CN_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=CO_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=DE_timeframe=2017-03-05 2021-05-05.tsv
+    google_anchorbank_geo=DE_timeframe=2018-03-05 2021-05-05_cat=71.tsv
+    google_anchorbank_geo=DE_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=DE_timeframe=2020-03-05 2021-05-05_cat=71.tsv
+    google_anchorbank_geo=DK_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=EC_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=ES_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=FR_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=GB_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=GH_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=GR_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=HR_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=ID_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=IE_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=IN_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=IT_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=JP_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=KE_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=KZ_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=LK_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=LT_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=MK_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=MM_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=MW_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=MX_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=NG_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=PE_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=PH_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=PT_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=RU_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=TR_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=TW_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=UA_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=US_timeframe=2007-01-01 2022-06-08.tsv
+    google_anchorbank_geo=US_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=VE_timeframe=2019-01-01 2020-12-31.tsv
+    google_anchorbank_geo=_timeframe=2019-01-01 2020-08-01.tsv
+Active anchorbank: google_anchorbank_geo=_timeframe=2019-01-01 2020-08-01.tsv</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5cblxudC5zZXRfb3B0aW9ucyhweXRyZW5kc19jb25maWc9e1wiZ2VvXCI6IFwiVVNcIiwgXCJ0aW1lZnJhbWVcIjogZlwie21pbnRpbWV9IHttYXh0aW1lfVwifSlcblxuI01ha2UgdGhpcyB0aGUgYWN0aXZlIEFuY2hvcmJhbmtcbnQuc2V0X2FjdGl2ZV9ndGFiKFwiZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVVTX3RpbWVmcmFtZT0yMDIwLTA1LTEyIDIwMjItMDUtMTEudHN2XCIpXG5taWQgPSBcIi9tLzBqZzdyXCIgIyBmcmVlYmFzZSBjb2RlIGZvciBFUEZMXG5ucV9yZXMgPSB0Lm5ld19xdWVyeShtaWQpIFxubnFfcmVzXG5cbmBgYCJ9 -->
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>t.set_options(pytrends_config<span class="op">=</span>{<span class="st">&quot;geo&quot;</span>: <span class="st">&quot;US&quot;</span>, <span class="st">&quot;timeframe&quot;</span>: <span class="ss">f&quot;</span><span class="sc">{</span>mintime<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>maxtime<span class="sc">}</span><span class="ss">&quot;</span>})</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Make this the active Anchorbank</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>t.set_active_gtab(<span class="st">&quot;google_anchorbank_geo=US_timeframe=2020-05-12 2022-05-11.tsv&quot;</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> <span class="st">&quot;/m/0jg7r&quot;</span> <span class="co"># freebase code for EPFL</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>nq_res <span class="op">=</span> t.new_query(mid) </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>nq_res</span></code></pre></div>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5cblxuI3Quc2V0X29wdGlvbnMocHl0cmVuZHNfY29uZmlnPXtcImdlb1wiOiBcIlVTXCIsIFwidGltZWZyYW1lXCI6IGZcInttaW50aW1lfSB7bWF4dGltZX1cIn0pXG5cbiNNYWtlIHRoaXMgdGhlIGFjdGl2ZSBBbmNob3JiYW5rXG50LnNldF9hY3RpdmVfZ3RhYihcImdvb2dsZV9hbmNob3JiYW5rX2dlbz1VU190aW1lZnJhbWU9MjAwNy0wMS0wMSAyMDIyLTA2LTA4LnRzdlwiKVxuYGBgIn0= -->
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#t.set_options(pytrends_config={&quot;geo&quot;: &quot;US&quot;, &quot;timeframe&quot;: f&quot;{mintime} {maxtime}&quot;})</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Make this the active Anchorbank</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>t.set_active_gtab(<span class="st">&quot;google_anchorbank_geo=US_timeframe=2007-01-01 2022-06-08.tsv&quot;</span>)</span></code></pre></div>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQWN0aXZlIGFuY2hvcmJhbmsgY2hhbmdlZCB0bzogZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVVTX3RpbWVmcmFtZT0yMDA3LTAxLTAxIDIwMjItMDYtMDgudHN2XG4ifQ== -->
+<pre><code>Active anchorbank changed to: google_anchorbank_geo=US_timeframe=2007-01-01 2022-06-08.tsv</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5taWQgPSBcImdvb2dsZVwiICMgZnJlZWJhc2UgY29kZSBmb3IgRVBGTFxubnFfcmVzID0gdC5uZXdfcXVlcnkobWlkKSBcbmBgYCJ9 -->
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> <span class="st">&quot;google&quot;</span> <span class="co"># freebase code for EPFL</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>nq_res <span class="op">=</span> t.new_query(mid) </span></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiVXNpbmcgQzpcXFVzZXJzXFxBZG1pblxcQXBwRGF0YVxcTG9jYWxcXFItTUlOSX4xXFxlbnZzXFxSLVJFVEl+MVxcbGliXFxzaXRlLXBhY2thZ2VzXFxndGFiXFxvdXRwdXRcXGdvb2dsZV9hbmNob3JiYW5rc1xcZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVVTX3RpbWVmcmFtZT0yMDA3LTAxLTAxIDIwMjItMDYtMDgudHN2XG5OZXcgcXVlcnkgJ2dvb2dsZSdcbk5ldyBxdWVyeSBjYWxpYnJhdGVkIVxuIn0= -->
+<pre><code>Using C:\Users\Admin\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\gtab\output\google_anchorbanks\google_anchorbank_geo=US_timeframe=2007-01-01 2022-06-08.tsv
+New query &#39;google&#39;
+New query calibrated!</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5ucV9yZXNcbmBgYCJ9 -->
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>nq_res</span></code></pre></div>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICBtYXhfcmF0aW8gIG1heF9yYXRpb19oaSAgbWF4X3JhdGlvX2xvXG5kYXRlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbjIwMDctMDEtMDEgICA1NzEuNjU0MTQzICAgIDY1MS4yOTI1OTQgICAgNTAyLjMxNzk4NFxuMjAwNy0wMi0wMSAgIDU3MS42NTQxNDMgICAgNjUxLjI5MjU5NCAgICA1MDIuMzE3OTg0XG4yMDA3LTAzLTAxICAgNTcxLjY1NDE0MyAgICA2NTEuMjkyNTk0ICAgIDUwMi4zMTc5ODRcbjIwMDctMDQtMDEgICA2MTkuMjkxOTg4ICAgIDcwNC40NTkzMzYgICAgNTQ1LjA2ODQ1MVxuMjAwNy0wNS0wMSAgIDY0My4xMTA5MTEgICAgNzMxLjA0MjcwNyAgICA1NjYuNDQzNjg0XG4uLi4gICAgICAgICAgICAgICAgIC4uLiAgICAgICAgICAgLi4uICAgICAgICAgICAuLi5cbjIwMjItMDItMDEgIDExNDMuMzA4Mjg2ICAgMTI4OS4yOTM1MDIgICAxMDE1LjMyMzU4NVxuMjAyMi0wMy0wMSAgMTA5NS42NzA0NDEgICAxMjM2LjEyNjc1OSAgICA5NzIuNTczMTE4XG4yMDIyLTA0LTAxICAxMDQ4LjAzMjU5NiAgIDExODIuOTYwMDE3ICAgIDkyOS44MjI2NTFcbjIwMjItMDUtMDEgIDEwNzEuODUxNTE4ICAgMTIwOS41NDMzODggICAgOTUxLjE5Nzg4NVxuMjAyMi0wNi0wMSAgMTA0OC4wMzI1OTYgICAxMTgyLjk2MDAxNyAgICA5MjkuODIyNjUxXG5cblsxODYgcm93cyB4IDMgY29sdW1uc11cbiJ9 -->
+<pre><code>              max_ratio  max_ratio_hi  max_ratio_lo
+date                                               
+2007-01-01   571.654143    651.292594    502.317984
+2007-02-01   571.654143    651.292594    502.317984
+2007-03-01   571.654143    651.292594    502.317984
+2007-04-01   619.291988    704.459336    545.068451
+2007-05-01   643.110911    731.042707    566.443684
+...                 ...           ...           ...
+2022-02-01  1143.308286   1289.293502   1015.323585
+2022-03-01  1095.670441   1236.126759    972.573118
+2022-04-01  1048.032596   1182.960017    929.822651
+2022-05-01  1071.851518   1209.543388    951.197885
+2022-06-01  1048.032596   1182.960017    929.822651
+
+[186 rows x 3 columns]</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkd0YWIgU2Vhc29uYWxpdHkgTm90ZWJvb2siDQphdXRob3I6ICJEYXJzaGFuIFBhdGVsIg0KZGF0ZTogImByIFN5cy5EYXRlKClgIg0Kb3V0cHV0OiANCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0b2M6IHRydWUNCiAgICB0b2NfZmxvYXQ6IHRydWUNCiAgICBudW1iZXJfc2VjdGlvbnM6IHRydWUNCiAgICB0aGVtZTogc2FuZHN0b25lDQogICAgaGlnaGxpZ2h0OiB0YW5nbw0KICAgIGZpZ19jYXB0aW9uOiB0cnVlDQogICAgZGZfcHJpbnQ6IHBhZ2VkDQotLS0NCg0KYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9DQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpDQprbml0cjo6b3B0c19rbml0JHNldChyb290LmRpciA9ICdDOlxcVXNlcnNcXEFkbWluXFxEb2N1bWVudHNcXEdpdEh1YlxcR3RhYi1TZWFzb25hbGl0eS1EZXZlbG9wbWVudCcpDQpvcHRpb25zKGtuaXRyLnRhYmxlLmZvcm1hdCA9ICJodG1sIikgDQpvcHRpb25zKGRpZ2l0cz0yKQ0Kb3B0aW9ucyhzY2lwZW4gPSAxMDApDQppZiAoIXJlcXVpcmUoInBhY21hbiIpKSBpbnN0YWxsLnBhY2thZ2VzKCJwYWNtYW4iKQ0KcGFjbWFuOjpwX2xvYWQocGFjbWFuLHJldGljdWxhdGUpDQpweV9pbnN0YWxsKCJndGFiIikNCmBgYA0KDQoNCg0KDQojIyMgVXBkYXRlIEFuY2hvciBCYW5rIHRvIEluY2x1ZGUgYWxsIHllYXJzDQoNCg0KYGBge3B5dGhvbn0NCiNwaXAgaW5zdGFsbCBndGFiDQojcGlwIGluc3RhbGwgZGF0ZXRpbWUNCiNwaXAgaW5zdGFsbCBkYXRldXRpbA0KI3BpcCBpbnN0YWxsIC0tdGFyZ2V0PS9ob21lL3VidW50dS8ubG9jYWwvc2hhcmUvci1taW5pY29uZGEgZ3RhYg0KDQppbXBvcnQgZ3RhYg0KaW1wb3J0IGRhdGV0aW1lDQpmcm9tIGRhdGV0aW1lIGltcG9ydCBkYXRlDQpmcm9tIGRhdGV1dGlsLnJlbGF0aXZlZGVsdGEgaW1wb3J0IHJlbGF0aXZlZGVsdGENCg0KdCA9IGd0YWIuR1RBQigpDQptaW50aW1lID0gIGRhdGUudG9kYXkoKSAtIHJlbGF0aXZlZGVsdGEoeWVhcnM9NikNCm1heHRpbWUgPSAgZGF0ZS50b2RheSgpDQpjb3VudHJ5ID0gJ1VTJw0KDQpgYGANCg0KDQpgYGB7cHl0aG9ufQ0KaW1wb3J0IHB5dHJlbmRzDQpmcm9tIHB5dHJlbmRzLnJlcXVlc3QgaW1wb3J0IFRyZW5kUmVxDQpweXRyZW5kID0gVHJlbmRSZXEoKQ0KI3VybGxpYjMgd2lsbCBzbGVlcCBmb3I6IHtiYWNrb2ZmIGZhY3Rvcn0gKiAoMiBeICh7bnVtYmVyIG9mIHRvdGFsIHJldHJpZXN9IC0gMSkpDQojdHogPSBtaW51dGVzIGJlaGluZCBVVEMNCnB5dHJlbmRzID0gVHJlbmRSZXEoaGw9ImVuLVVTIg0KLCB0aW1lb3V0PSg1LDI1KSx0eiA9IDMwMCwgcmV0cmllcyA9IDINCiNwcm94aWVzPVsnaHR0cHM6Ly8zNC4xNDEuMjMxLjEyMDo4MCddLCANCixiYWNrb2ZmX2ZhY3Rvcj01DQojLCByZXF1ZXN0c19hcmdzPXsndmVyaWZ5JzpUcnVlfQ0KKSANCmBgYA0KDQoNCmBgYHtweXRob259DQoNCnQuc2V0X29wdGlvbnMocHl0cmVuZHNfY29uZmlnPXsiZ2VvIjogZiJ7Y291bnRyeX0iLCAidGltZWZyYW1lIjogZiJ7bWludGltZX0ge21heHRpbWV9In0pDQp0LmNyZWF0ZV9hbmNob3JiYW5rKCkgIyB0YWtlcyBhIHdoaWxlIHRvIHJ1biBzaW5jZSBpdCBxdWVyaWVzIEdvb2dsZSBUcmVuZHMuDQoNCmBgYA0KI0xvYWQgQW5jaG9yYmFuaw0KDQpgYGB7cHl0aG9ufQ0KI01ha2UgdGhpcyB0aGUgYWN0aXZlIEFuY2hvcmJhbmsNCnQuc2V0X2FjdGl2ZV9ndGFiKGYiZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPXtjb3VudHJ5fV90aW1lZnJhbWU9e21pbnRpbWV9IHttYXh0aW1lfS50c3YiKQ0KbWlkID0gIi9tLzBqZzdyIiAjIGZyZWViYXNlIGNvZGUgZm9yIEVQRkwNCm5xX3JlcyA9IHQubmV3X3F1ZXJ5KG1pZCkgDQpucV9yZXMNCg0KYGBgDQoNCmBgYHtweXRob259DQoNCg0KdC5zZXRfb3B0aW9ucyhweXRyZW5kc19jb25maWc9eyJnZW8iOiAiVVMiLCAidGltZWZyYW1lIjogZiJ7bWludGltZX0ge21heHRpbWV9In0pDQoNCiNNYWtlIHRoaXMgdGhlIGFjdGl2ZSBBbmNob3JiYW5rDQp0LnNldF9hY3RpdmVfZ3RhYigiZ29vZ2xlX2FuY2hvcmJhbmtfZ2VvPVVTX3RpbWVmcmFtZT0yMDIwLTA1LTEyIDIwMjItMDUtMTEudHN2IikNCm1pZCA9ICIvbS8wamc3ciIgIyBmcmVlYmFzZSBjb2RlIGZvciBFUEZMDQpucV9yZXMgPSB0Lm5ld19xdWVyeShtaWQpIA0KbnFfcmVzDQoNCmBgYA0KDQoNCg0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkd0YWIgU2Vhc29uYWxpdHkgTm90ZWJvb2siDQphdXRob3I6ICJEYXJzaGFuIFBhdGVsIg0KZGF0ZTogImByIFN5cy5EYXRlKClgIg0Kb3V0cHV0OiANCiAgaHRtbF9ub3RlYm9vazoNCiAgICB0b2M6IHRydWUNCiAgICB0b2NfZmxvYXQ6IHRydWUNCiAgICBudW1iZXJfc2VjdGlvbnM6IHRydWUNCiAgICB0aGVtZTogc2FuZHN0b25lDQogICAgaGlnaGxpZ2h0OiB0YW5nbw0KICAgIGZpZ19jYXB0aW9uOiB0cnVlDQogICAgZGZfcHJpbnQ6IHBhZ2VkDQotLS0NCg0KYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9DQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpDQprbml0cjo6b3B0c19rbml0JHNldChyb290LmRpciA9ICdDOlxcVXNlcnNcXEFkbWluXFxEb2N1bWVudHNcXEdpdEh1YlxcR3RhYi1TZWFzb25hbGl0eS1EZXZlbG9wbWVudCcpDQpvcHRpb25zKGtuaXRyLnRhYmxlLmZvcm1hdCA9ICJodG1sIikgDQpvcHRpb25zKGRpZ2l0cz0yKQ0Kb3B0aW9ucyhzY2lwZW4gPSAxMDApDQppZiAoIXJlcXVpcmUoInBhY21hbiIpKSBpbnN0YWxsLnBhY2thZ2VzKCJwYWNtYW4iKQ0KcGFjbWFuOjpwX2xvYWQocGFjbWFuLHJldGljdWxhdGUpDQpweV9pbnN0YWxsKCJndGFiIikNCmBgYA0KDQoNCg0KDQojIyMgVXBkYXRlIEFuY2hvciBCYW5rIHRvIEluY2x1ZGUgYWxsIHllYXJzDQoNCg0KYGBge3B5dGhvbn0NCiNwaXAgaW5zdGFsbCBndGFiDQojcGlwIGluc3RhbGwgZGF0ZXRpbWUNCiNwaXAgaW5zdGFsbCBkYXRldXRpbA0KI3BpcCBpbnN0YWxsIC0tdGFyZ2V0PS9ob21lL3VidW50dS8ubG9jYWwvc2hhcmUvci1taW5pY29uZGEgZ3RhYg0KDQppbXBvcnQgZ3RhYg0KaW1wb3J0IGRhdGV0aW1lDQpmcm9tIGRhdGV0aW1lIGltcG9ydCBkYXRlDQpmcm9tIGRhdGV1dGlsLnJlbGF0aXZlZGVsdGEgaW1wb3J0IHJlbGF0aXZlZGVsdGENCg0KdCA9IGd0YWIuR1RBQigpDQptaW50aW1lID0gIGRhdGUudG9kYXkoKSAtIHJlbGF0aXZlZGVsdGEoeWVhcnM9NikNCm1heHRpbWUgPSAgZGF0ZS50b2RheSgpDQpjb3VudHJ5ID0gJ1VTJw0KDQpgYGANCg0KDQpgYGB7cHl0aG9ufQ0KaW1wb3J0IHB5dHJlbmRzDQpmcm9tIHB5dHJlbmRzLnJlcXVlc3QgaW1wb3J0IFRyZW5kUmVxDQpweXRyZW5kID0gVHJlbmRSZXEoKQ0KI3VybGxpYjMgd2lsbCBzbGVlcCBmb3I6IHtiYWNrb2ZmIGZhY3Rvcn0gKiAoMiBeICh7bnVtYmVyIG9mIHRvdGFsIHJldHJpZXN9IC0gMSkpDQojdHogPSBtaW51dGVzIGJlaGluZCBVVEMNCnB5dHJlbmRzID0gVHJlbmRSZXEoaGw9ImVuLVVTIg0KLCB0aW1lb3V0PSg1LDI1KSx0eiA9IDMwMCwgcmV0cmllcyA9IDINCiNwcm94aWVzPVsnaHR0cHM6Ly8zNC4xNDEuMjMxLjEyMDo4MCddLCANCixiYWNrb2ZmX2ZhY3Rvcj01DQojLCByZXF1ZXN0c19hcmdzPXsndmVyaWZ5JzpUcnVlfQ0KKSANCmBgYA0KDQoNCmBgYHtweXRob259DQoNCnQuc2V0X29wdGlvbnMocHl0cmVuZHNfY29uZmlnPXsiZ2VvIjogZiJ7Y291bnRyeX0iLCAidGltZWZyYW1lIjogZiJ7bWludGltZX0ge21heHRpbWV9In0pDQp0LmNyZWF0ZV9hbmNob3JiYW5rKCkgIyB0YWtlcyBhIHdoaWxlIHRvIHJ1biBzaW5jZSBpdCBxdWVyaWVzIEdvb2dsZSBUcmVuZHMuDQoNCmBgYA0KI0xvYWQgQW5jaG9yYmFuaw0KDQpgYGB7cHl0aG9ufQ0KI01ha2UgdGhpcyB0aGUgYWN0aXZlIEFuY2hvcmJhbmsNCiN0LnNldF9hY3RpdmVfZ3RhYihmImdvb2dsZV9hbmNob3JiYW5rX2dlbz17Y291bnRyeX1fdGltZWZyYW1lPXttaW50aW1lfSB7bWF4dGltZX0udHN2IikNCnQuc2V0X2FjdGl2ZV9ndGFiKCJnb29nbGVfYW5jaG9yYmFua19nZW89VVNfdGltZWZyYW1lPTIwMjAtMDUtMTIgMjAyMi0wNS0xMS50c3YiKQ0KbWlkID0gImdvb2dsZSBob21lIiAjIGZyZWViYXNlIGNvZGUgZm9yIEVQRkwNCm5xX3JlcyA9IHQubmV3X3F1ZXJ5KG1pZCkgDQpucV9yZXMNCg0KdC5saXN0X2d0YWJzKCkNCg0KYGBgDQoNCmBgYHtweXRob259DQoNCg0KI3Quc2V0X29wdGlvbnMocHl0cmVuZHNfY29uZmlnPXsiZ2VvIjogIlVTIiwgInRpbWVmcmFtZSI6IGYie21pbnRpbWV9IHttYXh0aW1lfSJ9KQ0KDQojTWFrZSB0aGlzIHRoZSBhY3RpdmUgQW5jaG9yYmFuaw0KdC5zZXRfYWN0aXZlX2d0YWIoImdvb2dsZV9hbmNob3JiYW5rX2dlbz1VU190aW1lZnJhbWU9MjAwNy0wMS0wMSAyMDIyLTA2LTA4LnRzdiIpDQptaWQgPSAiZ29vZ2xlIiAjIGZyZWViYXNlIGNvZGUgZm9yIEVQRkwNCm5xX3JlcyA9IHQubmV3X3F1ZXJ5KG1pZCkgDQpucV9yZXMNCg0KYGBgDQoNCg0KDQo=</div>
 
 
 </div>

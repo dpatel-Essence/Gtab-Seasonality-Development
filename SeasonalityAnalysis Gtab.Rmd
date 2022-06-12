@@ -74,21 +74,24 @@ t.create_anchorbank() # takes a while to run since it queries Google Trends.
 
 ```{python}
 #Make this the active Anchorbank
-t.set_active_gtab(f"google_anchorbank_geo={country}_timeframe={mintime} {maxtime}.tsv")
-mid = "/m/0jg7r" # freebase code for EPFL
+#t.set_active_gtab(f"google_anchorbank_geo={country}_timeframe={mintime} {maxtime}.tsv")
+t.set_active_gtab("google_anchorbank_geo=US_timeframe=2020-05-12 2022-05-11.tsv")
+mid = "google home" # freebase code for EPFL
 nq_res = t.new_query(mid) 
 nq_res
+
+t.list_gtabs()
 
 ```
 
 ```{python}
 
 
-t.set_options(pytrends_config={"geo": "US", "timeframe": f"{mintime} {maxtime}"})
+#t.set_options(pytrends_config={"geo": "US", "timeframe": f"{mintime} {maxtime}"})
 
 #Make this the active Anchorbank
-t.set_active_gtab("google_anchorbank_geo=US_timeframe=2020-05-12 2022-05-11.tsv")
-mid = "/m/0jg7r" # freebase code for EPFL
+t.set_active_gtab("google_anchorbank_geo=US_timeframe=2007-01-01 2022-06-08.tsv")
+mid = "google" # freebase code for EPFL
 nq_res = t.new_query(mid) 
 nq_res
 
